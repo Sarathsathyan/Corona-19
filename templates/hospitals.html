@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<style>
+    .w3-quarter{
+        padding-top: 0px;
+        padding-right: 16px;
+        padding-bottom: 0px;
+        padding-left: 16px;
+        margin-top: 14px;
+    }
+    .w3-gray{
+            width: 318px;
+    color: #fff!important;
+    background-color: #000!important;
+    margin-top: -15px;
+    margin-left: -16px;
+    height: 38px;
+    /* margin-right: -63px; */
+    font-size: 19px;
+    text-align: center;
+    }
+
+</style>
+<body>
+{% include 'partials/_header.html' %}<BR>
+<h2 style="text-align: center;    font-family: cursive;">HOSPITALS IN INDIA FOR COVID 19 - CORONA VIRUS DISEASE </h2>
+{#{% for states in s_data %}#}
+{##}
+{#    {% for host in h_data %}#}
+{#        {% if states.dName == host.state.dName %}#}
+{#            <h4>{{ states.dName }}</h4><h6>{{ host.hName }}</h6>#}
+{#        {% endif %}#}
+{##}
+{##}
+{#     {% endfor %}#}
+{#{% endfor %}#}
+<div class="w3-row-padding w3-animate-zoom w3-margin-bottom">
+{% for states in s_data %}
+
+    {% for host in h_data %}
+        {% if states.dName == host.state.dName %}
+
+            <div class="w3-mobile">
+                <div class="w3-container w3-blue w3-padding-16">
+                    <div class="w3-gray w3-left"><i class=""></i>{{ states.dName }}</div>
+                    <div class="w3-right">
+                <h5 class="fa fa-users w2-xxxlarge"></h5>
+                     </div>
+                    <div class="w3-clear"></div>
+                    <h4>{{ host.hName }}</h4>
+                </div>
+            </div>
+        {% endif %}
+    {% endfor %}
+    <hr>
+{% endfor %}
+
+</div>
+
+
+</body>
+</html>

@@ -1,0 +1,112 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Covid 19</title>
+<style>
+    #cont{
+        margin-top:-45px;
+        max-width: 190px;
+    }
+    #count{
+        margin-left: 10px;
+    }
+    #corona{
+            margin-top: 16px;
+    margin-left: 24px;
+    /* margin-right: 75px; */
+    position: static;
+    height: 400px;
+    width: 97%;
+
+    }
+    #text{
+            position: absolute;
+    /* top: 9px; */
+    margin-top: -201px;
+    position: center;
+    color: white;
+    margin-left: 9em;
+    font-size: 45px;
+    font-weight: bold;
+    }
+
+.zoom:hover {
+  -ms-transform: scale(1); /* IE 9 */
+  -webkit-transform: scale(1); /* Safari 3-8 */
+    transition-duration: 2s;
+  transform: scale(1.2);
+}
+
+</style>
+</head>
+
+<body>
+{% include 'partials/_header.html' %}
+
+<br>
+<div class="w3-container" id="count">
+    <h2 style="margin-left: 10px;">India COVID19 Tracker</h2>
+    <h3 style="padding-left: 31em; margin-top: -41px;">Last Updated : {{ last_update }}</h3>
+    <div class="w3-row-padding">
+        <div class="w3-quarter zoom">
+        <div class="w3-container w3-orange w3-text-white w3-padding-16">
+            <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+            <div class="w3-right">
+                <h3>India</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Country</h4>
+        </div>
+    </div>
+    <div class="w3-quarter zoom">
+        <div class="w3-container w3-blue w3-padding-16">
+            <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+            <div class="w3-right">
+                <h3>{{ confirmed }}</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Confirmed</h4>
+        </div>
+    </div>
+    <div class="w3-quarter zoom">
+        <div class="w3-container w3-red w3-padding-16">
+            <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+            <div class="w3-right">
+                <h3>{{ deaths }}</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Deaths</h4>
+        </div>
+    </div>
+     <div class="w3-quarter zoom">
+        <div class="w3-container w3-teal w3-padding-16">
+            <div class="w3-left"><i class="fa fa-users w3-xxxlarge"></i></div>
+            <div class="w3-right">
+                <h3>{{ recover }}</h3>
+            </div>
+            <div class="w3-clear"></div>
+            <h4>Recovered</h4>
+        </div>
+    </div>
+
+</div>
+</div>
+<div class="w3-container" >
+    <img id='corona' src="{% static 'images/corona.jpg' %}" alt="covid">
+    <h2 id="text">CORONA VIRUS - COVID 19</h2>
+</div>
+<div class="container" id="cont">
+{#    <img src="{% static 'images/symptoms.jpg' %}" alt="covid">#}
+    {% for i in countries %}
+        <h6>{{ i }}</h6>
+    {% endfor %}
+{#  <h3>Navbar With Dropdown</h3>#}
+{#  <p>This example adds a dropdown menu in the navbar.</p>#}
+</div>
+
+
+
+
+</body>
+</html>
