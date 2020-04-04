@@ -5,7 +5,7 @@ from django.shortcuts import render, redirect
 import http.client
 import json
 
-from .forms import AddInternship
+from .forms import AddInternship, EmContact
 # models
 from .models import Hospitals,District,rescue
 
@@ -50,6 +50,7 @@ def index(request):
    # print(data['data'])
     return render(request, 'index.html',context)
 
+# Countrys affected corona
 
 def country(request):
     conn = http.client.HTTPSConnection("covid-193.p.rapidapi.com")
@@ -102,8 +103,8 @@ def Rescue(request):
         district = request.POST['district']
         pincode = request.POST['pin']
         mobile = request.POST.get('user_phone')
-        data = rescue(name=name,address=address,state=state,district=district,pincode=pincode,user_phone
-        =mobile)
+        print(mobile)
+        data = rescue(name=name,address=address,state=state,district=district,pincode=pincode,user_phone=mobile)
         data.save()
     context = {
         'form': form,
@@ -120,3 +121,11 @@ def guid(request):
 
 def details(request):
     return render(request,'details.html')
+
+# Emergency contact
+def emergency(request):
+    form = EmContact()
+    context ={
+        'form' : form
+    }
+    return render(request,'contact.html',context)

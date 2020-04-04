@@ -10,4 +10,5 @@ urlpatterns = [
     path('rescue/',views.Rescue,name='rescue'),
     path('guidlines/',views.guid,name='guid'),
     path('details/',views.details,name='detail'),
+    path('emergency/',views.emergency,name = 'emergency'),
 ]

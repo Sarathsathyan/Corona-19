@@ -5,10 +5,31 @@
     <meta charset="UTF-8">
     <title>Title</title>
 </head>
+<style>
+    div {
+        float: left;
+        width: 320px;
+
+  padding: 10px;
+  border: 1px solid gray;
+  margin: 0;
+}
+    #align{
+            margin-left: 200px;
+    }
+</style>
 <body>
 {% include 'partials/_header.html' %}
 <h2>Countries Affected Corona Virus</h2>
-Stay safe
 
+<div class="container" id="align">
+{% for i in countries %}
+
+<div class="wrapper">
+      <h3>{{ i }}</h3>
+
+</div>
+{% endfor %}
+    </div>
 </body>
 </html>
