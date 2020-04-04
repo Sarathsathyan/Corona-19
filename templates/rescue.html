@@ -7,10 +7,17 @@
     <title>Title</title>
     <script src="{% static 'js/cities.js' %}"></script>
 </head>
-
+<style>
+    #id_user_phone{
+        width: 100%;
+        height: 45px;
+    }
+</style>
 <body>
+
 {% include 'partials/_header.html' %}
 <div class="container" style="padding-top: 3%;">
+     {% include 'partials/_alerts.html' %}
                 <h2> Govt Rescue Request <span style="color: #447e9b; float:right">WE WILL WIN THIS WAR</span>  </h2>
                 <hr>
                 <form method="POST" class="fom-group" name="AddInternship" enctype="multipart/form-data">

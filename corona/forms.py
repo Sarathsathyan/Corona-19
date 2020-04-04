@@ -20,11 +20,7 @@ class AddInternship(forms.ModelForm):
             'class': 'form-control'
         }
     ))
-    user_phone = forms.CharField(widget=forms.TextInput(
-        attrs={
-            'class': 'form-control',
-        }
-    ))
+
     class Meta:
         model = rescue
         fields = ['name','address','user_phone']
@@ -42,11 +38,7 @@ class EmContact(forms.ModelForm):
             'class': 'form-control'
         }
     ))
-    phone = forms.CharField(widget=forms.TextInput(
-        attrs={
-            'class': 'form-control',
-        }
-    ))
+
 
 
     class Meta:

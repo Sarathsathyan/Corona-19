@@ -2,6 +2,7 @@
 import requests
 from django.shortcuts import render
 from django.shortcuts import render, redirect
+from django.contrib import messages
 import http.client
 import json
 
@@ -102,10 +103,16 @@ def Rescue(request):
         state = request.POST['stt']
         district = request.POST['district']
         pincode = request.POST['pin']
-        mobile = request.POST.get('user_phone')
+        mobile = request.POST['user_phone']
         print(mobile)
+        if name.isdigit():
+            messages.error(request,"Name cannot have numbers")
+            return redirect('rescue')
         data = rescue(name=name,address=address,state=state,district=district,pincode=pincode,user_phone=mobile)
         data.save()
+        messages.success(request, 'Thank you ! Our rescue team will reach as soon as possible')
+        print("hai")
+
     context = {
         'form': form,
     }
@@ -141,6 +148,8 @@ def emergency(request):
         help = request.POST.get('typeHelp')
         description = request.POST['description']
         print(name)
+
         data = contact(name=name, address=address, state=state, district=district, phone=mobile, typeHelp=help,description=description)
         data.save()
+        messages.success(request, 'Thank you ! Our rescue team will reach as soon as possible')
     return render(request,'contact.html',context)

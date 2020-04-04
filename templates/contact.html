@@ -15,9 +15,16 @@
         }
     </style>
 </head>
+<style>
+    #id_phone{
+        width: 100%;
+        height: 45px;
+    }
+</style>
 <body>
 {% include 'partials/_header.html' %}
 <div class="container" style="padding-top: 3%;">
+    {% include 'partials/_alerts.html' %}
                 <h2>Emergency Contact Support<span style="color: #447e9b; float:right">WE WILL WIN THIS WAR</span>  </h2>
                 <hr>
                 <form method="POST" class="fom-group" name="EmContact" enctype="multipart/form-data">
