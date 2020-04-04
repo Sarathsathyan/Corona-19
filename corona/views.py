@@ -7,7 +7,7 @@ import json
 
 from .forms import AddInternship, EmContact
 # models
-from .models import Hospitals,District,rescue
+from .models import Hospitals,District,rescue, contact
 
 # Create your views here.
 
@@ -120,6 +120,9 @@ def guid(request):
 #corona details
 
 def details(request):
+
+
+
     return render(request,'details.html')
 
 # Emergency contact
@@ -128,4 +131,16 @@ def emergency(request):
     context ={
         'form' : form
     }
+    if request.method == 'POST':
+        print("inside")
+        name = request.POST.get('name')
+        address = request.POST.get('address')
+        state = request.POST['stt']
+        district = request.POST['district']
+        mobile = request.POST.get('phone')
+        help = request.POST.get('typeHelp')
+        description = request.POST['description']
+        print(name)
+        data = contact(name=name, address=address, state=state, district=district, phone=mobile, typeHelp=help,description=description)
+        data.save()
     return render(request,'contact.html',context)

@@ -20,17 +20,19 @@
 <div class="container" style="padding-top: 3%;">
                 <h2>Emergency Contact Support<span style="color: #447e9b; float:right">WE WILL WIN THIS WAR</span>  </h2>
                 <hr>
-                <form method="POST" class="fom-group" name="AddInternship" enctype="multipart/form-data">
+                <form method="POST" class="fom-group" name="EmContact" enctype="multipart/form-data">
 
                     {% csrf_token %} {{ form|crispy }}
 
+                    <br>
+                    Description About The Help*
+                    <textarea name="description" rows="5" class="form-control"></textarea>
                     <br>
                     <select onchange="print_city('state', this.selectedIndex);" id="sts" name ="stt" class="form-control" required></select>
                     <br>
                     <select id ="state" class="form-control" name="district" required></select>
                     <script language="javascript">print_state("sts");</script>
-                    Pincode*
-                    <input type="text" class="form-control" name ="pin" required><br>
+
                     <input class="btn btn-success" type="submit" name="submit" id="submit" value="Submit" style="float: right">
                 </form>
 
