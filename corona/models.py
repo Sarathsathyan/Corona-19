@@ -1,6 +1,8 @@
 from django.db import models
-
+from phonenumber_field.modelfields import PhoneNumberField
 # Create your models here.
+
+
 
 class District(models.Model):
     dName = models.CharField(max_length=100)
@@ -15,3 +17,15 @@ class Hospitals(models.Model):
 
     def __str__(self):
         return self.hName
+
+
+class rescue(models.Model):
+    name = models.CharField(max_length=100)
+    state = models.CharField(max_length=100)
+    district = models.CharField(max_length=100)
+    address = models.TextField(max_length=100,null=True)
+    pincode = models.IntegerField()
+    user_phone = PhoneNumberField(null=False, blank=False, unique=True, default='+91')
+
+    def __str__(self):
+        return self.name

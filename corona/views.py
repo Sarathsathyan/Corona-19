@@ -5,8 +5,9 @@ from django.shortcuts import render, redirect
 import http.client
 import json
 
+from .forms import AddInternship
 # models
-from .models import Hospitals,District
+from .models import Hospitals,District,rescue
 
 # Create your views here.
 
@@ -90,3 +91,32 @@ def hospitals(request):
         'h_data':h_data
     }
     return render(request,'hospitals.html',context)
+
+def Rescue(request):
+    form = AddInternship()
+
+    if request.method == 'POST':
+        name = request.POST.get('name')
+        address = request.POST.get('address')
+        state = request.POST['stt']
+        district = request.POST['district']
+        pincode = request.POST['pin']
+        mobile = request.POST.get('user_phone')
+        data = rescue(name=name,address=address,state=state,district=district,pincode=pincode,user_phone
+        =mobile)
+        data.save()
+    context = {
+        'form': form,
+    }
+    return render(request,'rescue.html',context)
+
+# Guidlines
+
+def guid(request):
+    return render(request,'guidlines.html')
+
+
+#corona details
+
+def details(request):
+    return render(request,'details.html')

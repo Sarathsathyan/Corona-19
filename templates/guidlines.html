@@ -1,10 +1,106 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>$Title$</title>
+    <title>Title</title>
+    <style>
+        .split {
+      height: 65%;
+    width: 48%;
+    margin-top: 50px;
+    margin-left: 22px;
+    position: fixed;
+    margin-right: 22px;
+    z-index: 1;
+    overflow-x: hidden;
+    padding-top: 20px;border-radius: 13px
+}
+/* Control the left side */
+.left {
+  left: 0;
+  background-color: #526BB4;
+}
+
+/* Control the right side */
+.right {
+  right: 0;
+
+  background-color: #526BB4;
+}
+
+/* If you want the content centered horizontally and vertically */
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.heading{
+    text-shadow: 2px 2px;
+    color: #5A5554;
+}
+        .element{
+            font-size: 20px;
+        }
+
+    </style>
 </head>
-<body>
-$END$
+{% include 'partials/_header.html' %}
+
+
+ <div class="split left">
+     <center><h2 class="heading">Guidlines for Employees</h2></center>
+     <ul class="element">
+         <li>
+             Mandatory Work From Home
+         <ul>
+             <li>Every employee should  be asked to work from home until the spread of the virus is stopped</li>
+         </ul>
+
+         </li>
+         <li>
+             Employee Engagement Activities
+         <ul>
+             <li>Employee motivation level can be measured by conducting employee motivation level surveys.
+         The survey can include questions to measure the likelihood of employees to work from home,
+         stress level created during being isolated from co-workers, employee productivity, work discipline and more.</li>
+         </ul>
+
+         </li>
+     </ul>
+     <h4>
+
+
+     </h4><p></p>
+     <h4></h4>
+     <p></p>
+{#  <div class="centered">#}
+{#    <img src="{% static 'images/corona.jpg' %}" alt="Avatar woman">#}
+{#    <h2>Jane Flex</h2>#}
+{#    <p>Some text.</p>#}
+{#  </div>#}
+</div>
+
+<div class="split right">
+    <center><h2 class="heading">Solution to the employment problem in India</h2></center>
+    <ul class="element">
+        <li>Shift development focus towards labour intensive sectors to create more jobs</li><br>
+        <li>Governments need to prioritise curbing corruption and regulate other drivers of inequality
+            and joblessness such as crony capitalism.</li><br>
+        <li>Governments need to prioritise curbing corruption and regulate other drivers of inequality and
+            joblessness such as crony capitalism</li><br>
+        <li>Greater focus is required on better and relevant skilling opportunities</li>
+    </ul>
+{#  <div class="centered">#}
+{#    <img src="img_avatar.png" alt="Avatar man">#}
+{#    <h2>John Doe</h2>#}
+{#    <p>Some text here too.</p>#}
+{#  </div>#}
+</div>
+
 </body>
+
 </html>
